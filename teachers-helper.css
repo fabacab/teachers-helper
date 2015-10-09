@@ -1,0 +1,49 @@
+#floorspace {
+    counter-reset: seats;
+    height: calc(100vh - 25px);
+    width: 100vw;
+    margin-top: 25px;
+    display: flex;
+}
+.classroom-table {
+    border: 1px dotted red;
+    margin: 20px;
+    flex: 1;
+    flex-wrap: wrap;
+    display: flex;
+}
+.seat {
+    position: relative;
+    margin: 5px;
+    border: 1px dotted green;
+    width: calc(50% - 10px);
+    display: inline-block;
+}
+.seat::before {
+    counter-increment: seats;
+    content: counter(seats);
+    font-size: 5rem;
+    color: #EEE;
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+}
+.seat[data-present="false"] {
+    opacity: .3;
+}
+menu[type="toolbar"] {
+    position: fixed;
+    top: 0;
+    left: 0;
+    margin: 0; padding: 0;
+    list-style-type: none;
+}
+menu li {
+    display: inline-block;
+}
+
+.action {
+    display: flex;
+    flex-direction: column;
+}
